@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import NavbarMoreMenu from './NavbarMoreMenu';
+import SmallScreenNavbar from './SmallScreenNavbar';
 
 const navLinksData = [
   {
@@ -49,57 +50,76 @@ const navLinksData = [
 
 const Navbar = () => {
   return (
-    <Center h={'74px'} bg={'#172132'} w='100%'>
-      <Center w={'976px'} justifyContent={'space-between'}>
+    <>
+      <Center
+        h={'74px'}
+        bg={'#172132'}
+        w='100%'
+        display={['none', 'none', 'none', 'flex']}
+      >
+        <Center
+          w={['97%', '97%', '97%', '976px']}
+          justifyContent={'space-between'}
+        >
+          {/* logo */}
+          <NavLink to={'/'}>
+            <Img
+              p={'4px 64px 4px 0'}
+              src='https://www.cricket.com/cricket.com.svg'
+              alt='navbar_logo'
+              h={'100%'}
+            />
+          </NavLink>
 
-        {/* logo */}
-        <NavLink to={'/'}>
-          <Img
-            p={'4px 64px 4px 0'}
-            src='https://www.cricket.com/cricket.com.svg'
-            alt='navbar_logo'
-            h={'100%'}
-          />
-        </NavLink>
+          <Center
+            w={['auto', 'auto', '', 'auto']}
+            display={['none', 'none', 'flex', 'flex']}
+          >
+            {/* NavLinks */}
+            {navLinksData.map(item => (
+              <NavLink
+                to={item.to}
+                end
+                key={item.id}
+                className={({ isActive }) =>
+                  isActive ? styles.activeClass : styles.defaultClass
+                }
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        height: '74px',
+                        padding: '16px',
+                        backgroundColor: '#4e5661a7',
+                        borderBottom: '4px solid red',
+                      }
+                    : {
+                        height: '74px',
+                        padding: '16px',
+                      }
+                }
+              >
+                <Box>
+                  <Img src={item.image} alt='nav_image' margin='auto' />
+                  <Text
+                    color={'white'}
+                    fontSize={['0.5rem', '0.5rem', '0.5rem', '0.64rem']}
+                    p={'4px 0'}
+                  >
+                    {item.title}
+                  </Text>
+                </Box>
+              </NavLink>
+            ))}
 
-        <Center>
-          {/* NavLinks */}
-          {navLinksData.map(item => (
-            <NavLink
-              to={item.to}
-              end
-              key={item.id}
-              className={({ isActive }) =>
-                isActive ? styles.activeClass : styles.defaultClass
-              }
-              style={({ isActive }) =>
-                isActive
-                  ? {
-                      height: '74px',
-                      padding: '16px',
-                      backgroundColor: '#4e5661a7',
-                      borderBottom: '4px solid red',
-                    }
-                  : {
-                      height: '74px',
-                      padding: '16px',
-                    }
-              }
-            >
-              <Box>
-                <Img src={item.image} alt='nav_image' margin='auto' />
-                <Text color={'white'} fontSize='0.64rem' p={'4px 0'}>
-                  {item.title}
-                </Text>
-              </Box>
-            </NavLink>
-          ))}
-
-          {/* navbar more menu */}
-          <NavbarMoreMenu />
+            {/* navbar more menu */}
+            <NavbarMoreMenu />
+          </Center>
         </Center>
       </Center>
-    </Center>
+
+      {/* smaller screen nav */}
+      <SmallScreenNavbar />
+    </>
   );
 };
 
