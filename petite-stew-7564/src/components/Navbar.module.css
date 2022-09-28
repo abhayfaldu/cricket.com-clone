@@ -1,0 +1,16 @@
+.defaultClass:hover {
+  background-color: #4e5661a7;
+}
+
+.navbar__more {
+  height: 74px;
+}
+
+.navbar__moreBox {
+  padding: 16px;
+  height: 74px;
+}
+
+.navbar__more:hover {
+  background-color: #4e5661a7;
+}
