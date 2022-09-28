@@ -1,9 +1,12 @@
 import './App.css';
+import Navbar from './components/Navbar';
+import AllRoutes from './pages/AllRoutes';
 
 function App() {
   return (
     <div className="App">
-      hello new cricket App
+      <Navbar />
+      <AllRoutes />
     </div>
   );
 }
