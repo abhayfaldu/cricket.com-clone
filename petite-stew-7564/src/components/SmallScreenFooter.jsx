@@ -31,7 +31,7 @@ const footerLinksData = [
 
 const SmallScreenFooter = () => {
   return (
-    <>
+    <Box display={['flex', 'flex', 'flex', 'none']}>
       {/* center item */}
       <Center
         position={'absolute'}
@@ -258,7 +258,7 @@ const SmallScreenFooter = () => {
           </NavLink>
         </Box>
       </Flex>
-    </>
+    </Box>
   );
 };
 
