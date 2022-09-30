@@ -1,12 +1,16 @@
-import React from 'react'
-import HomeHeader from '../components/HomeHeader'
+import React from 'react';
+import HomeVideosSection from '../components/HomeVideosSection';
+import HomeHeader from '../components/HomeHeader';
 
 const Home = () => {
   return (
     <>
       <HomeHeader />
-    </>
-  )
-}
 
-export default Home
+      {/* featured videos section */}
+      <HomeVideosSection />
+    </>
+  );
+};
+
+export default Home;
