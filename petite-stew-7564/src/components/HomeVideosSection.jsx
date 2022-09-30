@@ -45,7 +45,7 @@ const HomeVideosSection = () => {
         m='auto'
         my={3}
         borderRadius='5px'
-        className='home__featuredVideos'
+        className='noScrollBars'
       >
         <Flex
           p={4}
@@ -93,11 +93,7 @@ const HomeVideosSection = () => {
                       />
                     </span>
                   </Center>
-                  <Center
-                    position={'absolute'}
-                    w={'16rem'}
-                    h={'9rem'}
-                  >
+                  <Center position={'absolute'} w={'16rem'} h={'9rem'}>
                     <Img
                       src='https://www.cricket.com/svgs/videoIcon.svg'
                       alt='play-icon'
