@@ -1,0 +1,3 @@
+.noScrollBars > ::-webkit-scrollbar {
+  display: none;
+}
