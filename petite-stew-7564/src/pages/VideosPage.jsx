@@ -2,7 +2,7 @@ import React from 'react'
 
 const VideosPage = () => {
   return (
-    <div>VideosPage</div>
+    <div>started working on this page</div>
   )
 }
 
