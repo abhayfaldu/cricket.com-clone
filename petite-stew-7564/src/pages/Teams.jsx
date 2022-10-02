@@ -7,6 +7,6 @@ const Teams = () => {
     navigate('/pageNotFound');
   });
   return <></>;
-}
+};
 
-export default Teams
+export default Teams;

@@ -1,42 +1,27 @@
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Box, Center, Flex, Img, Text } from '@chakra-ui/react';
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const videosData = [
-  {
-    title:
-      "TEAM INDIA'S T20I TIER LIST I CDC Follow Through with Avanish Hegde I Cricket.com",
-    poster: 'https://img.youtube.com/vi/ha6B1U9f-yY/mqdefault.jpg',
-  },
-  {
-    title:
-      'BREAKING NEWS! Jasprit Bumrah injured, ruled out of the T20 World Cup 2022 I Cricket.com',
-    poster: 'https://img.youtube.com/vi/gqQgCOWpJa0/mqdefault.jpg',
-  },
-  {
-    title:
-      'Reactions! India run through Proteas top-order with ease | CDC Watchalong Best Bits',
-    poster: 'https://img.youtube.com/vi/OIQ_PlPLDCc/mqdefault.jpg',
-  },
-  {
-    title:
-      'Reactions! India run through Proteas top-order with ease | CDC Watchalong Best Bits',
-    poster: 'https://img.youtube.com/vi/LMy0LHt9Tpw/mqdefault.jpg',
-  },
-  {
-    title:
-      "Analysing India's squad for the WT20 | Wrong'Uns with Weston | Episode 3",
-    poster: 'https://img.youtube.com/vi/UpWJiTveRqs/mqdefault.jpg',
-  },
-  {
-    title:
-      'Harry Brook: Not Just Another English Cricketer | CDC Features I Cricket.com',
-    poster: 'https://img.youtube.com/vi/STmW8tM4uHo/mqdefault.jpg',
-  },
-];
+export const api = 'AIzaSyCnT0wok4ge0qm6LaaFPOhpIzuoE95pa9I';
+const query = 'cricket.com/tv';
+const youtubeApiLink = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=date&q=${query}&maxResults=6&key=${api}`;
 
 const HomeVideosSection = () => {
+  const [videos, setVideos] = useState([]);
+
+  const getVideos = () => {
+    axios
+      .get(youtubeApiLink)
+      .then(res => setVideos(res.data.items))
+      .catch(err => console.log('error in getting videos:', err));
+  };
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+
   return (
     <>
       <Box
@@ -62,7 +47,7 @@ const HomeVideosSection = () => {
         </Flex>
         <Flex p={4} m={0} overflowX='scroll'>
           <Flex>
-            {videosData.map((video, index) => (
+            {videos.map((video, index) => (
               <NavLink to={`/videos/${index}`}>
                 <Flex
                   flexDir={'column'}
@@ -77,21 +62,14 @@ const HomeVideosSection = () => {
                     w={'16rem'}
                     h={'9rem'}
                   >
-                    <span
-                      style={{
-                        color: 'transparent',
-                        display: 'inline-block',
-                      }}
-                    >
-                      <Img
-                        src={video.poster}
-                        alt='video-poster'
-                        maxW='100%'
-                        h='100%'
-                        objectFit={'cover'}
-                        color='transparent'
-                      />
-                    </span>
+                    <Img
+                      src={video.snippet.thumbnails.high.url}
+                      alt='video-poster'
+                      w='100%'
+                      h='100%'
+                      objectFit={'cover'}
+                      color='transparent'
+                    />
                   </Center>
                   <Center position={'absolute'} w={'16rem'} h={'9rem'}>
                     <Img
@@ -102,7 +80,7 @@ const HomeVideosSection = () => {
                       maxW='100%'
                     />
                   </Center>
-                  <Text>{video.title}</Text>
+                  <Text>{video.snippet.title}</Text>
                 </Flex>
               </NavLink>
             ))}

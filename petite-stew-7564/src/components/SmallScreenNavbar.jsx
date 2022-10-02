@@ -1,32 +1,21 @@
-import {
-  // Box,
-  Center,
-  Flex,
-  // HStack,
-  Img,
-  Stack,
-  Text,
-  // VStack,
-} from '@chakra-ui/react';
+import { Center, Flex, Img, Stack, Text } from '@chakra-ui/react';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const SmallScreenNavbar = () => {
   return (
-    <Center
-      display={['flex', 'flex', 'flex', 'none']}
-      w='100%'
-      p={'0 8px'}
-      // h={'85px'}
-    >
+    <Center display={['flex', 'flex', 'flex', 'none']} w='100%' p={'0 8px'}>
       <Center w={'18%'} mr={'4%'}>
-        <Img
-          src='https://www.cricket.com/svgs/images/icon-128x128.png'
-          alt='logo'
-          w={'51px'}
-        />
+        <NavLink to={'/'}>
+          <Img
+            src='https://www.cricket.com/svgs/images/icon-128x128.png'
+            alt='logo'
+            w={'51px'}
+          />
+        </NavLink>
       </Center>
       <Stack w={'78%'}>
-        <Text fontSize={'16px'}color={'#000c'} fontWeight={600}>
+        <Text fontSize={'16px'} color={'#000c'} fontWeight={600}>
           What are you looking for?
         </Text>
         <Flex m={0}>
@@ -41,21 +30,23 @@ const SmallScreenNavbar = () => {
               Fantasy Center
             </Text>
           </Center>
-          <Center
-            border={'1px solid #eee'}
-            borderRadius={'0.25rem'}
-            p={'8px 16px'}
-          >
-            <Img
-              src='https://www.cricket.com/svgs/frcBlueIcon.svg'
-              alt='navLink_icon'
-              w={'27px'}
-              pr={'4px'}
-            />
-            <Text fontSize={'14px'} color={'#0009'} fontWeight={600}>
-              Videos
-            </Text>
-          </Center>
+          <NavLink to={'/videos/0'}>
+            <Center
+              border={'1px solid #eee'}
+              borderRadius={'0.25rem'}
+              p={'8px 16px'}
+            >
+              <Img
+                src='https://www.cricket.com/svgs/frcBlueIcon.svg'
+                alt='navLink_icon'
+                w={'27px'}
+                pr={'4px'}
+              />
+              <Text fontSize={'14px'} color={'#0009'} fontWeight={600}>
+                Videos
+              </Text>
+            </Center>
+          </NavLink>
         </Flex>
       </Stack>
     </Center>

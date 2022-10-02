@@ -32,7 +32,7 @@ const navLinksData = [
     image: 'https://www.cricket.com/svgs/icons/news-and-articles-icon.svg',
   },
   {
-    to: '/videos',
+    to: '/videos/0',
     title: 'Videos',
     image: 'https://www.cricket.com/svgs/icons/video-icon.svg',
   },
@@ -56,6 +56,10 @@ const Navbar = () => {
         bg={'#172132'}
         w='100%'
         display={['none', 'none', 'none', 'flex']}
+        position='sticky'
+        top={0}
+        left={0}
+        zIndex='10000'
       >
         <Center
           w={['97%', '97%', '97%', '976px']}
