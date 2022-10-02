@@ -18,7 +18,7 @@ const PageNotFound = () => {
           home page
         </NavLink>{' '}
         or{' '}
-        <NavLink to={'/videos'} style={linkStyle}>
+        <NavLink to={'/videos/0'} style={linkStyle}>
           videos page
         </NavLink>
         .
