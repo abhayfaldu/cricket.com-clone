@@ -34,7 +34,7 @@ const HomeDataDigest = () => {
           borderBottom={'0.2px solid lightgray'}
         >
           <Text fontSize={'0.75rem'} fontWeight={600}>
-            NEWS AND ARTICLES
+            Data Digest
           </Text>
           <NavLink to={'/videos'}>
             <ChevronRightIcon w={5} h={5} />
