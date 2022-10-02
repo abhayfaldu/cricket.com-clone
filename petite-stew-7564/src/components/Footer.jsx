@@ -1,5 +1,6 @@
 import { Box, Center, Flex, Img, Stack, Text } from '@chakra-ui/react';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import SmallScreenFooter from './SmallScreenFooter';
 
 const Footer = () => {
@@ -19,13 +20,13 @@ const Footer = () => {
           justify={'space-between'}
           color={'#777'}
         >
-          <Box>
+          <NavLink to='/'>
             <Img
               src='https://www.cricket.com/svgs/cricket-logo.svg'
               alt='logo'
             />
             <Text fontSize={'.64rem'}>Cricket like never before</Text>
-          </Box>
+          </NavLink>
           <Center maxW={'61rem'}>
             {['Terms of use', 'Privacy Policy', 'Cookies Policy'].map(item => (
               <Text px={'8px'} fontSize={'12px'}>

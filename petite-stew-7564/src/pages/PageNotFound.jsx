@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react';
+import { Center, Text } from '@chakra-ui/react';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const PageNotFound = () => {
     textDecoration: 'underline',
   };
   return (
-    <>
+    <Center w='100vw' h='71.3vh' flexDir={'column'}>
       <Text mt={'20px'} fontSize='30px' fontWeight={'bold'}>
         404 &nbsp; | &nbsp; Page Not Found
       </Text>
@@ -23,7 +23,7 @@ const PageNotFound = () => {
         </NavLink>
         .
       </Text>
-    </>
+    </Center>
   );
 };
 
