@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
 
   return isLoading ? (
-    <Center w={'100vw'} h='100vh' mt={'-11rem'}>
+    <Center w={'100vw'} h='100vh' mt={'-11rem'} >
       <Img src='https://www.cricket.com/static/gif/logo.gif' />
     </Center>
   ) : (

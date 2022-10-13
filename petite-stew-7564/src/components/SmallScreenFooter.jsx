@@ -20,7 +20,7 @@ const footerLinksData = [
   {
     image:
       'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIzIDIwIj4KICAgIDxwYXRoIGZpbGw9IiM3Mjc2ODIiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTIzIDExLjgxNHYzLjQ2YzAgMi4yMDQtMS43ODQgMy45OTUtMy45NzggMy45OTVIMy45NzdDMS43ODMgMTkuMjY5IDAgMTcuNDc4IDAgMTUuMjczVi41NjRDMCAuMjU0LjI1MyAwIC41NjIgMGgxNy41NmMuMzEgMCAuNTYyLjI1NC41NjIuNTY0djEwLjA1NEgyMi41YS41LjUgMCAwIDEgLjUuNXYuNjk2em0tNC4zMTYgMHYzLjgzOGMwIC4zMS0uMjUyLjU2NC0uNTYxLjU2NGEuNTY0LjU2NCAwIDAgMS0uNTYyLS41NjRWMS4xMjhIMS4xMjN2MTQuMTVhMi44NjMgMi44NjMgMCAwIDAgMi44NTQgMi44NjdoMTUuMDVhMi44NjMgMi44NjMgMCAwIDAgMi44NTQtMi44Njd2LTMuNDY0aC0zLjE5N3ptLTMuNDY4LTYuNjU3SDQuMDYyYy0uMjgyIDAtLjUxMi0uMjYtLjUxMi0uNTc4IDAtLjMxOS4yMy0uNTc5LjUxMi0uNTc5aDExLjE1NGMuMjgxIDAgLjUxMi4yNi41MTIuNTc5IDAgLjMxOC0uMjMuNTc4LS41MTIuNTc4em0uMDA1IDQuNTNoLTguNzFjLS4yOCAwLS41MTEtLjI2LS41MTEtLjU3OCAwLS4zMTguMjMtLjU3OS41MTItLjU3OWg4LjcxYy4yOCAwIC41MTEuMjYuNTExLjU3OSAwIC4zMTgtLjIzLjU3OC0uNTEyLjU3OHptLS4wMTMgMy4zNzNjLjI4MiAwIC41MDguMjYuNTA4LjU3OSAwIC4zMTgtLjIzLjU3OS0uNTEyLjU3OWgtNS4wNDJjLS4yODIgMC0uNTEyLS4yNi0uNTEyLS41OCAwLS4zMTcuMjMtLjU3OC41MTItLjU3OGg1LjA0NnoiLz4KPC9zdmc+Cg==',
-    title: 'NEWS',
+    title: 'VIDEOS',
   },
   {
     image:
@@ -31,7 +31,14 @@ const footerLinksData = [
 
 const SmallScreenFooter = () => {
   return (
-    <Box display={['flex', 'flex', 'flex', 'none']}>
+    <Box
+      // h="100vh"
+      display={['flex', 'flex', 'flex', 'none']}
+      position='sticky'
+      bottom={0}
+      left={0}
+      bg='white'
+    >
       {/* center item */}
       <Center
         position={'absolute'}
@@ -183,7 +190,7 @@ const SmallScreenFooter = () => {
         <Box w={'30%'} bg={'transparent'} p={'0.5rem 0'}></Box>
         <Box p={'.5rem 0'} w={'20%'}>
           <NavLink
-            to={'/news'}
+            to={'/videos/0'}
             style={({ isActive }) =>
               isActive
                 ? {

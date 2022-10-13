@@ -53,14 +53,16 @@ const VideosList = ({ videos }) => {
         {videos.map((video, index) => (
           <Flex
             key={video.id.videoId}
-            m='16px 8px'
+            flexDir={['column', 'row']}
+            m={['8px 8px', '8px 8px', '16px 8px']}
             gap={4}
             onClick={() => handleVideoClick(index)}
             _hover={{ cursor: 'pointer' }}
+            // overflow="hidden"
           >
             <Center
-              w='160px'
-              h='96px'
+              w={['100%', '160px']}
+              h={['250px', '96px']}
               zIndex={0}
               overflow='hidden'
               backgroundSize={'contain'}
@@ -81,12 +83,12 @@ const VideosList = ({ videos }) => {
                 />
               </Center>
             </Center>
-            <Box w='768px'>
+            <Box flex={1}>
               <Text fontWeight={500}>{video.snippet.title}</Text>
               <Text fontSize={'0.67rem'} pt={1}>
                 {video.snippet.publishTime.slice(11, 13)} hours ago
               </Text>
-              <Text py={2} fontSize='0.75rem' h='2.2rem'>
+              <Text py={2} fontSize='0.75rem'>
                 {video.snippet.description}
               </Text>
             </Box>

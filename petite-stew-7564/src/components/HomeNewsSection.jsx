@@ -1,18 +1,20 @@
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Box, Flex, Img, Text } from '@chakra-ui/react';
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const apiKey = 'a1dc34d3f0a74391823ced4dbff955c9';
-const cricketNewsApiUrl = `https://newsapi.org/v2/everything?q=cricket&apiKey=${apiKey}&pageSize=4&page=1`;
+const cricketNewsApiUrl = `https://newsapi.org/v2/everything?q=cricket&apiKey=${apiKey}&pageSize=6&page=1`;
 
 const HomeNewsSection = () => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-    axios(cricketNewsApiUrl)
-      .then(res => setNewsData(res.data.articles))
+    fetch(cricketNewsApiUrl)
+      .then(res => res.json())
+      .then(res => {
+        setNewsData(res.articles)
+      })
       .catch(err => console.log('err in getting data', err));
   }, []);
 

@@ -41,7 +41,7 @@ const HomeVideosSection = () => {
           <Text fontSize={'0.75rem'} fontWeight={600}>
             FEATURED VIDEOS
           </Text>
-          <NavLink to={'/videos'}>
+          <NavLink to={'/videos/0'}>
             <ChevronRightIcon w={5} h={5} />
           </NavLink>
         </Flex>

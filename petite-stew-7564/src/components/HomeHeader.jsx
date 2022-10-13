@@ -16,14 +16,8 @@ const HomeHeader = () => {
           h='100%'
           mt={'-0.5rem'}
           px={'1rem'}
-          >
-          <Box
-            p={0}
-            zIndex={1}
-            h='250px'
-            maxW='778px'
-            padding='23px 0 0 0'
-          >
+        >
+          <Box p={0} zIndex={1} h='250px' maxW='778px' padding='23px 0 0 0'>
             <HomeHeaderCarousel />
           </Box>
         </Center>
